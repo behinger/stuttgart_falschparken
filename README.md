@@ -1,4 +1,4 @@
-# Analysis of Stuttgarts Traffic tickets
+# Visualization of Stuttgarts Traffic tickets
 This repository contains code to analyse all ~1.5 Million traffic tickets in Stuttgart in the years 2021, 2022 and 2023 as published on [www.stuttgart.de](https://www.stuttgart.de/organigramm/leistungen/verfahrensinformationen-und-begriffserklaerungen-zum-thema-ordnungswidrigkeiten-und-bussgeldverfahren.php)
 
 I'm using Julia for parsing, and the excellent Makie.jl and Tyler.jl package, especially the datashader library therein to visualize them.
