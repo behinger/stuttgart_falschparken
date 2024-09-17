@@ -7,6 +7,41 @@ I'm using Julia for parsing, and the excellent Makie.jl and Tyler.jl package, es
 ![grafik](https://github.com/user-attachments/assets/f26b172c-9234-470d-99c0-4b20f683b5ec)
 
 Example visualization of all 1.5 million traffic tickets. Bright spot mean more tickets.
+## Quick start
+
+For more details see https://github.com/behinger/stuttgart_falschparken/blob/main/2024-09-06_strafzettelFalschparker.jl
+```julia
+using Pkg
+Pkg.activate(".")
+using Revise
+includet("src/io.jl")
+includet("src/osm.jl")
+includet("src/various.jl")
+includet("src/plotting.jl")
+# load the year
+years = [2021,2022,2023]
+dat = [read_verkehrsordnungswidrigkeiten("2024-09-17_Strafzettel-$year.csv") for year in years] 
+dat = reduce(vcat,dat)
+
+# Plotting time
+
+using Makie
+using Tyler
+using Tyler.TileProviders
+using Tyler.MapTiles
+using GLMakie
+
+ma = plot_map()
+
+h2 = datashader!(to_web_mercator.(dat.geolocation),alpha=0.8,binsize=5,interpolate=false)
+translate!.([h2],0,0,1) # bug in Makie?
+Colorbar(current_figure()[1,2], h2)
+
+ma # output figure
+
+
+```
+
 
 ## Code base
 The codebase is a bit adhoc I admit. I "successfully" parse 95.5% of the data. That means, I'm able to geolocate the "Tatort" to an OSM building/adress or an intersection with a Levensthein Distance of at least 0.6.
