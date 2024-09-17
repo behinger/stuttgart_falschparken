@@ -1,0 +1,11 @@
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+GLMakie = "e9467ef8-e4e7-5192-8a1a-b1aee30e663a"
+LightOSM = "d1922b25-af4e-4ba3-84af-fe9bea896051"
+Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
+ProgressMeter = "92933f4c-e287-5a05-a399-4b506db050ca"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+StringDistances = "88034a9c-02f8-509d-84a9-84ec65e18404"
+Tyler = "e170d443-b9d6-418a-9ee8-061e966341ef"
+XLSX = "fdbf4ff8-1666-58a4-91e7-1b58723a45e0"
