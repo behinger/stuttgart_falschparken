@@ -76,5 +76,7 @@ function read_verkehrsordnungswidrigkeiten(fp)
     dat.geolocation  = map(x->Point2f(parse.(Float32,x)),split.(_subset.(dat.geolocation),", "))
 
     dat.Tatzeit = Hour.(hour.(DateTime.(dat.Tatzeitpunkt))).+ Minute.(minute.(DateTime.(dat.Tatzeitpunkt)))
+    dat.Tatzeitpunkt = DateTime.(dat.Tatzeitpunkt)
+    
     return dat
 end
